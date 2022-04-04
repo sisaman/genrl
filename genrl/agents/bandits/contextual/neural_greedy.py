@@ -72,8 +72,8 @@ class NeuralGreedyAgent(DCBAgent):
             return torch.tensor(
                 self.t % self.n_actions, device=self.device, dtype=torch.int
             ).view(1)
-        if torch.randn(1) < self.epsilon:
-            action = torch.randint(self.n_actions, size=(1,)).to(torch.int)
+        if torch.rand(1) < self.epsilon:
+            action = torch.randint(self.n_actions, size=(1,), dtype=torch.int, device=self.device)
         else:
             results = self.model(context)
             action = torch.argmax(results["pred_rewards"]).to(torch.int).view(1)
