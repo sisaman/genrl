@@ -85,5 +85,5 @@ def fetch_zipped_data_without_header(
     df = pd.read_csv(
         fpath, header=None, delimiter=delimiter, na_values=na_values
     ).dropna()
-    fpath.unlink()
+    # fpath.unlink()
     return df
