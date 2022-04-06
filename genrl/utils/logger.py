@@ -21,7 +21,7 @@ class Logger:
         else:
             self._logdir = logdir
             if not os.path.isdir(self._logdir):
-                os.makedirs(self._logdir)
+                os.makedirs(self._logdir, exist_ok=True)
         self._formats = formats
         self.writers = []
         for ft in self.formats:
